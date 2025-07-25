@@ -10,12 +10,12 @@ const API = {
 
 // Class that will hold all queries to the API
 class APIQuery {
-  // static async welcomeScreen() {
-  static async welcomeScreen(clientID) {
+  static async welcomeScreen() {
+  // static async welcomeScreen(clientID) {
     return new Promise((resolve) => {
       const base = API.baseWelcome;
-      const client = `clientid=${clientID}`;
-      // const client = 'clientid=hoQN3shDOSco7AGYMIH5TIGdqEg=';
+      // const client = `clientid=${clientID}`;
+      const client = 'clientid=hoQN3shDOSco7AGYMIH5TIGdqEg=';
       const url = (`${base + client}`);
       console.log('URL: ', url);
       fetch(url, {

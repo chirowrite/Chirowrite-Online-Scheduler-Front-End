@@ -47,8 +47,8 @@ export default {
       tablet: null,
       desktop: null,
       // Will be imported value from URL once web address is configured.
-      ClientID: '',
-      // ClientID: 'hoQN3shDOSco7AGYMIH5TIGdqEg=',
+      // ClientID: '',
+      ClientID: 'hoQN3shDOSco7AGYMIH5TIGdqEg=',
       PracticeName: '',
       PracticeLogo: '',
     };
@@ -67,9 +67,9 @@ export default {
     // async goToNewPatient() {
     // },
     async welcomeScreen() {
-      const results = await AppointmentQuery.welcomeScreen(this.ClientID);
-      // const results = await AppointmentQuery.welcomeScreen();
-      // console.log('Welcome Screen Results: ', results);
+      // const results = await AppointmentQuery.welcomeScreen(this.ClientID);
+      const results = await AppointmentQuery.welcomeScreen();
+      console.log('Welcome Screen Results: ', results);
       this.PracticeName = results.Offices[0].Name;
       this.PracticeLogo = results.Offices[0].LogoPath;
       store.commit('addPracticeName', this.PracticeName);
