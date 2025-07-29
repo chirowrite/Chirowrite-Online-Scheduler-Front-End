@@ -118,7 +118,7 @@ export default {
     for a reply from the fetch (await used before AppointmentQuery) the promise will
     be completed before the program steps past the fetch. */
     async sendForm() {
-      // console.log('ClientID: ', this.ClientID);
+      console.log('ClientID: ', this.ClientID);
       const ph = this.PhoneNumber.replace('(', '').replace(')', '').replace('-', '');
       const res = await AppointmentQuery.getValidation(this.ClientID, ph, this.PIN);
       console.log('Response: ', res);

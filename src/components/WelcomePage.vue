@@ -47,8 +47,8 @@ export default {
       tablet: null,
       desktop: null,
       // Will be imported value from URL once web address is configured.
-      // ClientID: '',
-      ClientID: 'hoQN3shDOSco7AGYMIH5TIGdqEg=',
+      ClientID: '',
+      // ClientID: 'hoQN3shDOSco7AGYMIH5TIGdqEg=',
       PracticeName: '',
       PracticeLogo: '',
     };
@@ -70,6 +70,9 @@ export default {
       // const results = await AppointmentQuery.welcomeScreen(this.ClientID);
       const results = await AppointmentQuery.welcomeScreen();
       console.log('Welcome Screen Results: ', results);
+      const ClientNumber = 'hoQN3shDOSco7AGYMIH5TIGdqEg=';
+      this.ClientID = ClientNumber;
+      store.commit('addClientID', this.ClientID);
       this.PracticeName = results.Offices[0].Name;
       this.PracticeLogo = results.Offices[0].LogoPath;
       store.commit('addPracticeName', this.PracticeName);
@@ -101,12 +104,13 @@ export default {
       console.log('No Client Code Here!');
       this.ClientID = store.state.conClientID;
     } else {
-      this.ClientID = this.$route.query.code;
+      // this.ClientID = this.$route.query.code;
     }
   },
   async mounted() {
     await this.welcomeScreen();
-    store.commit('addClientID', this.ClientID);
+    // store.commit('addClientID', this.ClientID);
+    console.log('New Welcome Screen: ', this.ClientID);
   },
   computed: {
     loadingStatus() {
